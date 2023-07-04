@@ -1,136 +1,77 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <base href="/">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Flet application.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Flet">
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Flet specific -->
-  <meta name="flet-route-url-strategy" content="path">
-  <meta name="flet-web-pyodide" content="true">
-
-  <title>Flet</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    var webRenderer = "auto";
-    var useColorEmoji = false;
-  </script>
-
-  <script>webRenderer="html";</script>
-  <script>useColorEmoji=false;</script>
-
-  
-        <script>
-            var micropipIncludePre = false;
-            var pythonModuleName = "main";
-        </script>
-        <script src="python.js"></script>
-        
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = "2289608434";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Путешествия в пастельных тонах</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #ffc0cb;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    
+    h1 {
+      font-size: 48px;
+      margin-top: 0;
+    }
+    
+    section {
+      background-color: #fff;
+      padding: 50px;
+      margin: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      font-size: 36px;
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    
+    footer {
+      background-color: #ffc0cb;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+  </style>
 </head>
-
 <body>
-  <div id="loading">
-    <style>
-      body {
-        inset: 0;
-        overflow: hidden;
-        margin: 0;
-        padding: 0;
-        position: fixed;
-      }
+  <header>
+    <h1>Путешествия в пастельных тонах</h1>
+  </header>
 
-      #loading {
-        align-items: center;
-        display: flex;
-        height: 100%;
-        justify-content: center;
-        width: 100%;
-      }
+  <section>
+    <h2>О нас</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec diam elit. Donec ut lectus ac nisi volutpat viverra. Sed mollis diam sed enim mollis, at lobortis urna vestibulum. Fusce hendrerit ipsum in libero sollicitudin, ac congue nulla aliquet. Sed euismod ipsum eu velit blandit tincidunt.</p>
+  </section>
 
-      #loading img {
-        animation: 1s ease-in-out 0s infinite alternate breathe;
-        opacity: .66;
-        transition: opacity .4s;
-      }
+  <section>
+    <h2>Наши услуги</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec diam elit. Donec ut lectus ac nisi volutpat viverra. Sed mollis diam sed enim mollis, at lobortis urna vestibulum. Fusce hendrerit ipsum in libero sollicitudin, ac congue nulla aliquet. Sed euismod ipsum eu velit blandit tincidunt.</p>
+  </section>
 
-      #loading.main_done img {
-        opacity: 1;
-      }
+  <section>
+    <h2>Популярные направления</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec diam elit. Donec ut lectus ac nisi volutpat viverra. Sed mollis diam sed enim mollis, at lobortis urna vestibulum. Fusce hendrerit ipsum in libero sollicitudin, ac congue nulla aliquet. Sed euismod ipsum eu velit blandit tincidunt.</p>
+  </section>
 
-      #loading.init_done img {
-        animation: .33s ease-in-out 0s 1 forwards zooooom;
-        opacity: .05;
-      }
-
-      @keyframes breathe {
-        from {
-          transform: scale(0.4);
-          opacity: 1.0;
-        }
-
-        to {
-          transform: scale(0.35);
-          opacity: .7;
-        }
-      }
-
-      @keyframes zooooom {
-        from {
-          transform: scale(0.4)
-        }
-
-        to {
-          transform: scale(10)
-        }
-      }
-    </style>
-    <img src="icons/loading-animation.png" alt="Loading..." />
-  </div>
-  <script>
-    window.addEventListener('load', function () {
-      var loading = document.querySelector('#loading');
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        loading.classList.add('main_done');
-        return engineInitializer.initializeEngine({
-          renderer: webRenderer,
-          useColorEmoji: useColorEmoji,
-        });
-      }).then(function (appRunner) {
-        loading.classList.add('init_done');
-        return appRunner.runApp();
-      }).then(function (app) {
-        // Wait a few milliseconds so users can see the "zoooom" animation
-        // before getting rid of the "loading" div.
-        window.setTimeout(function () {
-          loading.remove();
-        }, 200);
-      });
-    });
-  </script>
+  <footer>
+    <p>&copy; 2023 Путешествия в пастельных тонах. Все права защищены.</p>
+  </footer>
 </body>
-
 </html>
